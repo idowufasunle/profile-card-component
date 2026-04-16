@@ -1,84 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Profile card component</title>
 
-  <title>Frontend Mentor | Profile card component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <link rel="font-family" href="/images/KumbhSans-VariableFont_YOPQ,wght.ttf" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'off-white': 'hsl(225, 10%, 92%)',
-            'light-blue': 'hsl(185, 75%, 39%)',
-            'gray-normal': 'hsl(227, 10%, 46%)',
-            'navy-bold': 'hsl(229, 23%, 23%)',
-
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link
+      rel="font-family"
+      href="./images/KumbhSans-VariableFont_YOPQ,wght.ttf"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              white: "hsl(225, 10%, 92%)",
+              background: "hsl(185, 75%, 39%)",
+              foreground: "hsl(227, 10%, 46%)",
+              primary: "hsl(229, 23%, 23%)",
+            },
+            fontFamily: {
+              display: ['"Kumbh Sans"', "sans-serif"], // Custom utility: font-display
+            },
           },
-          fontFamily: {
-        display: ['"Kumbh Sans"', 'sans-serif'], // Custom utility: font-display
-      },
-      backgroundImage: {
-        'double-pattern': "url('/images/bg-pattern-top.svg'), url('/images/bg-pattern-bottom.svg')",
-      }
-        }
-      }
-    }
-  </script>
-</head>
+        },
+      };
+    </script>
 
-<body class="root font-display">
-  <div class="card_wrapper flex justify-center items-center min-h-dvh bg-light-blue p-5 bg-double-pattern">
-    <div class="card rounded-2xl relative">
-      <div class="card_top">
-        <div class="image_wrapper overflow-hidden rounded-t-2xl">
-          <img class="ocean_blue" src="/images/bg-pattern-card.svg" />
+    <style>
+      .top-image {
+        background-image: url("./images/bg-pattern-top.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+      .bottom-image {
+        background-image: url("./images/bg-pattern-bottom.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+  </head>
 
+  <body class="root">
+    <div
+      class="bg-background relative min-h-screen overflow-hidden grid items-center justify-center"
+    >
+      <div
+        class="absolute top-0 md:-top-[20%] left-0 md:-left-[5%] w-[400px] md:w-[600px] aspect-square top-image"
+      ></div>
+      <div
+        class="absolute top-[70%] -right-[10%] w-[500px] aspect-square bottom-image"
+      ></div>
+
+      <div class="card_wrapper flex justify-center items-center p-5">
+        <div class="card rounded-2xl relative">
+          <div class="card_top">
+            <div class="image_wrapper overflow-hidden rounded-t-2xl">
+              <img class="ocean_blue" src="./images/bg-pattern-card.svg" />
+            </div>
+          </div>
+
+          <div
+            class="card_bottom flex justify-center items-center flex-col gap-5 font-bold text-2xl bg-white rounded-b-2xl py-5 pt-20"
+          >
+            <div class="profile_name">
+              Victor Crest
+              <span class="profile_age text-primary/70">26</span>
+            </div>
+            <div class="profile_location text-primary/70 text-xl">
+              London
+            </div>
+            <div
+              class="stats_wrapper flex justify-around items-center gap-5 border-t border-primary/70 pt-5 w-full"
+            >
+              <div class="follower_stat text-center">
+                <div class="follower_number">80K</div>
+                <div class="follower text-primary/70 text-xl">Follower</div>
+              </div>
+              <div class="likes_stat text-center">
+                <div class="likes_number">803K</div>
+                <div class="likes text-primary/70 text-xl">Likes</div>
+              </div>
+              <div class="photos_stat text-center">
+                <div class="photos_number">1.4K</div>
+                <div class="photos text-primary/70 text-xl">Photos</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="profile_image absolute top-[25%] left-[35%] rounded-full border-4 border-off-white overflow-hidden"
+          >
+            <img class="profile_picture" src="./images/image-victor.jpg" />
+          </div>
         </div>
       </div>
-
-      <div class="card_bottom flex justify-center items-center flex-col gap-5 font-bold text-2xl bg-off-white rounded-b-2xl py-5 pt-20">
-        <div class="profile_name">Victor Crest <span class="profile_age text-gray-normal/70">26</span></div>
-        <div class="profile_location text-gray-normal/70 text-xl">London</div>
-        <div class="stats_wrapper flex justify-around items-center gap-5 border-t border-gray-normal/70 pt-5 w-full">
-          <div class="follower_stat text-center">
-            <div class="follower_number">80K</div>
-            <div class="follower text-gray-normal/70 text-xl">Follower</div>
-          </div>
-          <div class="likes_stat text-center">
-            <div class="likes_number">803K</div>
-            <div class="likes text-gray-normal/70 text-xl">Likes</div>
-          </div>
-          <div class="photos_stat text-center">
-            <div class="photos_number">1.4K</div>
-            <div class="photos text-gray-normal/70 text-xl">Photos</div>
-          </div>
-
-        </div>
-
-
-      </div>
-      <div class="profile_image absolute top-[25%] left-[35%] rounded-full border-4 border-off-white overflow-hidden">
-        <img class="profile_picture" src="/images/image-victor.jpg" />
-
-      </div>
-
-
     </div>
-  </div>
-
-
-</body>
-
+  </body>
 </html>
